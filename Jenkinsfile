@@ -23,10 +23,10 @@ pipeline {
                 sshagent(credentials: [env.EC2_CREDENTIALS_ID]) {
                     sh '''
                     echo "Copying files to EC2"
-                    scp -o StrictHostKeyChecking=no -r dist/ $EC2_USER@$EC2_HOST:/var/www/html
+                    cp -o StrictHostKeyChecking=no -r dist/ /var/www/html
 
                     echo "Restarting web server on EC2"
-                    ssh -o StrictHostKeyChecking=no $EC2_USER@$EC2_HOST "sudo systemctl restart nginx || echo 'Nginx not running'"
+                    sudo systemctl restart nginx
                     
                     echo "Deployment finished on EC2"
                     '''
