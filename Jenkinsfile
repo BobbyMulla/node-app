@@ -10,7 +10,7 @@ pipeline{
                                }
                                stage('deploy'){
                                 steps{
-                                    sh 'scp -r -o strictCheckingOfKey=No ./dist/* /home/ubuntu/node-app/'
+                                    sh 'scp -r -o StrictHostKeyChecking=No ./dist/* /home/ubuntu/node-app/'
                                     sh 'npm start'
                                     echo "Starting development on EC2"
                                      }
