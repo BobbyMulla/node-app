@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         EC2_USER = 'ubuntu'
-        EC2_HOST = '3.110.188.231'
+        EC2_HOST = '52.66.245.109'
         EC2_CREDENTIALS_ID = 'ec2-ssh-key'
     }
 
